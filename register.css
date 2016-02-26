@@ -1,0 +1,49 @@
+*{margin:0;padding:0;}
+html,body {
+    	position: relative;
+    	height: 100%;
+    	font-family: "微软雅黑 ";
+    }
+body {
+    	font-size: 0.14rem;
+    	margin: 0;
+    	padding: 0;
+    }
+input,button{display:block;}
+button,input{
+	border:0;
+}
+input:focus {
+    outline:none;
+}
+button:focus{
+	outline:none;
+}
+.nav_img{
+	height:auto;
+	max-width:100%;
+}
+.nav_img img{
+	height:auto;
+	max-width:100%;
+   display:block;
+}
+
+.row{
+	height:50px !important;
+	line-height:46px;
+	width:100%;
+	margin:0;
+	border-bottom:1px #ccc solid;
+}
+.f_code{
+	text-indent:1em;
+}
+.f_confirm{
+	width:80%;
+	margin:0 auto;
+	height:40px;
+	background-color:#FFC514;
+	border-radius:5px;
+	margin-top:10px;
+}

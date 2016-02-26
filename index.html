@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+  <title>fruit商城</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
+  <link rel="stylesheet" type="text/css" href="css/index.css"/>
+  <link rel="stylesheet" href="css/swiper.min.css">
+
+</head>
+<body>
+<!--头部导航-->
+		<header class="nav-header">
+			<span>
+				<img src="images/mifeng.png"  class="icon" width="45px" height="50px;"/>
+			</span>
+
+			<span><i data-iconpos="top" class="fa fa-search-plus fa-3x"  style="font-size:23em;"></i></span>
+		</header>
+<!--头部导航end-->
+<!-- Swiper -->
+	    <div class="swiper-container">
+	        <div class="swiper-wrapper">
+	            <div class="swiper-slide"><img src="images/3.jpg" /></div>
+	            <div class="swiper-slide"><img src="images/3.jpg" /></div>
+	            <div class="swiper-slide"><img src="images/3.jpg" /></div>
+	        </div>
+	        <!-- Add Pagination -->
+	        <div class="swiper-pagination"></div>
+	        <!-- Add Arrows -->
+	        <div class="swiper-button-next"></div>
+	        <div class="swiper-button-prev"></div>
+	    </div>
+<!-- Swiper end -->	
+<!--container容器-->
+		<div class="container-fluid">	
+			<nav class="navbar">
+				<ul>
+					<li><img src="images/11.png"></li>
+					<li><img src="images/22.png"></li>
+					<li><img src="images/33.png"></li>
+					<li><img src="images/44.png"></li>    
+				</ul>
+			</nav>
+			<article>
+				<section class="row r_section">
+					<p class="col-xs-8 p_span">
+						<span>鲜果盛宴</span>
+						<a>仙桃<b>6.9元</b>/<b>3</b>粒&nbsp;买一赠一</a>
+						<span>玫瑰香&nbsp;买一赠一&nbsp;8.8元抢</span>
+					</p>
+					<p class="col-xs-4">
+						<img src="images/1.png" width="100%" height="100%;"/>
+					</p>
+				</section>
+				<section class="row r_section">
+					<p class="col-xs-8 p_span">
+						<span>鲜果盛宴</span>
+						<a>仙桃<b>6.9元</b>/<b>3</b>粒&nbsp;买一赠一</a>
+						<span>玫瑰香&nbsp;买一赠一&nbsp;8.8元抢</span>
+					</p>
+					<p class="col-xs-4">
+						<img src="images/1.png" width="100%" height="100%;"/>
+					</p>
+				</section>
+			</article>
+		</div>
+<!---contianer容器结束--->
+		<footer>
+			<nav>
+				 <ul class="nav nav-tabs nav-justified navlist" >
+					  <li><a href="">首页</a></li>
+					  <li><a href="">闪联超市</a></li>
+					  <li><a  href="">我的</a></li>
+					  <li><a  href="register.html">个人中心</a></li>
+				  </ul>
+			 </nav>
+		</footer>
+   <script src="js/jquery-1.11.0.min.js"/></script>
+   <script src="js/swiper.min.js"/></script>
+ 
+      <!-- Initialize Swiper -->
+	    <script>
+	    var swiper = new Swiper('.swiper-container', {
+	        pagination: '.swiper-pagination',
+	        nextButton: '.swiper-button-next',
+	        prevButton: '.swiper-button-prev',
+	        paginationClickable: true,
+	        spaceBetween: 30,
+	        centeredSlides: true,
+	        autoplay: 2500,
+	        autoplayDisableOnInteraction: false
+	    });
+	    </script>
+		<script>
+			$(document).ready(function(){
+			var browser = {
+				versions: function () {
+					var u = navigator.userAgent, app = navigator.appVersion;
+					return {         //移动终端浏览器版本信息
+						trident: u.indexOf('Trident') > -1, //IE内核
+						presto: u.indexOf('Presto') > -1, //opera内核
+						webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+						gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+						mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+						ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+						android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+						iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+						iPad: u.indexOf('iPad') > -1, //是否iPad
+						webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+					};
+				}(),
+				language: (navigator.browserLanguage || navigator.language).toLowerCase()
+			};
+    window.onload = function(){
+        var _down_link = "register.html",
+            _andoroidLink = 'index.html',
+            _appLink = 'index.html',
+            _androidApp = "index.html";
+        //手机打开
+        if(browser.versions.mobile){
+            var ua = navigator.userAgent.toLowerCase();
+            //应用内打开
+            if(ua.match(/Slate/i)){
+                if (browser.versions.ios){
+                    window.location.href=_appLink;
+                }else{
+                    window.location.href=_andoroidLink;
+                }
+            } else if(/micromessenger/.test(ua)){//微信打开
+                //如果是IOS
+                if(browser.versions.ios){
+                    $('.phoneWeixin').show();
+                    return;
+                }
+                else if(browser.versions.android)
+                {  //andorid
+                    $('.androidWeixin').show();
+                    return;
+                }
+            }else{
+                $('.activityMobile').show();
+            }
+        }else{
+            $('.activityWeb').show();
+        }
+        $('.btn-block').click(function(){
+            if (browser.versions.ios){
+                goToApp(_appLink,_down_link);
+            }else{
+                location.href = _androidApp;
+                //goToApp(_andoroidLink,_androidApp);
+            }
+        })
+    };
+});
+
+		</script>
+</body>
+
+</html>
